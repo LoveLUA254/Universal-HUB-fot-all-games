@@ -1,0 +1,85 @@
+
+local G2L = {};
+
+-- StarterGui.ScreamerGUI
+G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"]["SelectionBehaviorLeft"] = Enum.SelectionBehavior.Stop;
+G2L["1"]["IgnoreGuiInset"] = true;
+G2L["1"]["DisplayOrder"] = 100;
+G2L["1"]["SelectionBehaviorDown"] = Enum.SelectionBehavior.Stop;
+G2L["1"]["AutoLocalize"] = false;
+G2L["1"]["SelectionBehaviorUp"] = Enum.SelectionBehavior.Stop;
+G2L["1"]["ScreenInsets"] = Enum.ScreenInsets.None;
+G2L["1"]["ClipToDeviceSafeArea"] = false;
+G2L["1"]["Name"] = [[ScreamerGUI]];
+G2L["1"]["SelectionBehaviorRight"] = Enum.SelectionBehavior.Stop;
+G2L["1"]["ResetOnSpawn"] = false;
+
+
+
+
+-- StarterGui.ScreamerGUI.Screamer1
+G2L["3"] = Instance.new("ImageLabel", G2L["1"]);
+G2L["3"]["Active"] = true;
+G2L["3"]["ZIndex"] = 2;
+G2L["3"]["BorderSizePixel"] = 0;
+G2L["3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3"]["Image"] = [[http://www.roblox.com/asset/?id=108597316466514]];
+G2L["3"]["Size"] = UDim2.new(1.00103, 0, 1, 0);
+G2L["3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3"]["LayoutOrder"] = 6;
+G2L["3"]["Name"] = [[Screamer1]];
+G2L["3"]["Position"] = UDim2.new(1.993, 0, 0.9856, 0);
+
+
+-- StarterGui.ScreamerGUI.Screamer2
+G2L["4"] = Instance.new("ImageLabel", G2L["1"]);
+G2L["4"]["BorderSizePixel"] = 0;
+G2L["4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4"]["Image"] = [[http://www.roblox.com/asset/?id=88625322735158]];
+G2L["4"]["Size"] = UDim2.new(1.00016, 0, 1.0012, 0);
+G2L["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4"]["Name"] = [[Screamer2]];
+G2L["4"]["Position"] = UDim2.new(1.993, 0, 0.9844, 0);
+
+
+-- StarterGui.ScreamerGUI.ScreamerSound
+G2L["5"] = Instance.new("Sound", G2L["1"]);
+G2L["5"]["RollOffMaxDistance"] = 100000;
+G2L["5"]["Volume"] = 40;
+G2L["5"]["Name"] = [[ScreamerSound]];
+G2L["5"]["SoundId"] = [[rbxassetid://9118500848]];
+
+
+
+wait(2)
+
+local Screamer1 = G2L["3"]
+local Screamer2 = G2L["4"]
+
+Screamer1.Position = UDim2.fromScale({-0, 0},{-0.001, 0})
+Screamer2.Position = UDim2.fromScale({-0, 0},{-0.001, 0})
+
+G2L["5"]:play()
+
+local function CF()
+    while wait(4.5) do
+       G2L["5"]:play()
+    end
+end
+
+task.spawn(CF)
+
+
+while wait(0.05) do 
+    if Screamer1.Visible == true then
+        Screamer1.Visible = false
+    else
+        Screamer1.Visible = true
+    end
+end
+
+
+
+return G2L["1"], require;
+
